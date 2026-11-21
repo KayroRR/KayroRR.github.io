@@ -1,0 +1,16 @@
+import { resolve } from 'node:path';
+import { defineConfig } from 'vite';
+
+export default defineConfig({
+  build: {
+    rollupOptions: {
+      input: {
+        home: resolve(process.cwd(), 'index.html'),
+        research: resolve(process.cwd(), 'research/index.html'),
+        projects: resolve(process.cwd(), 'projects/index.html'),
+        outreach: resolve(process.cwd(), 'outreach/index.html'),
+        contact: resolve(process.cwd(), 'contact/index.html'),
+      },
+    },
+  },
+});
