@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#071114" />
+    <meta name="description" content="Contact Kayro Romero Ramírez for academic inquiries, theoretical physics collaborations, or tutoring." />
+    <title>Contact | Kayro Romero Ramírez</title>
+    <link rel="icon" type="image/svg+xml" href="/logo-cosmica.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/css/styles.css" />
+    <script type="module" src="/src/js/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Kayro Romero, home">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="15.5" stroke="currentColor" stroke-width="1.3"/><ellipse cx="20" cy="20" rx="8" ry="16" transform="rotate(42 20 20)" stroke="currentColor" stroke-width="1.3"/><circle cx="20" cy="20" r="2.4" fill="currentColor"/><circle cx="31.5" cy="9" r="2" fill="#f0a878"/></svg></span>
+        <span class="brand-name">KAYRO ROMERO</span><span class="brand-divider">/</span><span class="brand-descriptor">Theoretical Physics &amp; Cosmology</span>
+      </a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><span></span><span></span></button>
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <a href="/research/">Research</a>
+        <a href="/projects/">Projects</a>
+        <a href="/outreach/">Teaching &amp; Outreach</a>
+        <a class="nav-contact" href="/contact/">Contact <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+
+    <main id="contenido" class="inner-page contact-page">
+      <section class="page-hero contact-hero">
+        <div class="page-kicker"><span>05 / Direct Contact</span><span class="live-indicator">San José, Costa Rica (UTC-6)</span></div>
+        <div class="contact-title-wrap">
+          <p class="eyebrow">Contact</p>
+          <h1>Let's discuss<br /><em>physics &amp; research.</em></h1>
+          <p class="contact-lede">Available for 2027 theoretical physics research internships, computational collaborations, and university-level physics or mathematics tutoring.</p>
+        </div>
+        <div class="contact-orbit" aria-hidden="true"><span></span><i></i><b></b></div>
+      </section>
+
+      <section class="contact-section section-shell">
+        <div class="contact-details">
+          <div class="section-label"><span>01 / Direct Channels</span><span>University of Costa Rica</span></div>
+          <p class="eyebrow">Institutional Email</p>
+          <a class="contact-email" href="mailto:kayro.romero@ucr.ac.cr">kayro.romero@ucr.ac.cr <span aria-hidden="true">↗</span></a>
+          <p class="email-note">GitHub: <a href="https://github.com/KayroRR" target="_blank" style="text-decoration:underline;">github.com/KayroRR</a> · LinkedIn: <a href="https://www.linkedin.com/in/kayro-romero-824043276" target="_blank" style="text-decoration:underline;">kayro-romero-824043276</a></p>
+          <div class="contact-topics">
+            <p class="eyebrow">Topics</p>
+            <div>
+              <span>Research Internships</span>
+              <span>Cosmology &amp; QFT</span>
+              <span>Scientific Computing</span>
+              <span>Physics &amp; Math Tutoring</span>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contact-form">
+          <p class="eyebrow">Compose Message</p>
+          <label for="sender-name">Your Name</label>
+          <input id="sender-name" name="name" autocomplete="name" required placeholder="Full name" />
+          <label for="sender-email">Your Email</label>
+          <input id="sender-email" name="email" type="email" autocomplete="email" required placeholder="name@institution.edu" />
+          <label for="message-topic">Subject</label>
+          <select id="message-topic" name="topic">
+            <option>Research Internship / Collaboration</option>
+            <option>Academic Inquiry</option>
+            <option>Physics / Math Tutoring</option>
+            <option>Other</option>
+          </select>
+          <label for="message-body">Message</label>
+          <textarea id="message-body" name="message" rows="4" required placeholder="Briefly describe your inquiry."></textarea>
+          <button class="button button-primary form-submit" type="submit">Open in Mail App <span aria-hidden="true">↗</span></button>
+          <p class="form-note" id="form-note" aria-live="polite">This opens your default email client directly; no data is stored on this site.</p>
+        </form>
+      </section>
+
+      <section class="contact-close">
+        <span class="close-mark" aria-hidden="true">✳</span>
+        <p>School of Physics · University of Costa Rica<br /><em>San José, Costa Rica</em></p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="footer-brand" href="/">KAYRO ROMERO<span> · Theoretical Physics</span></a>
+      <span>University of Costa Rica · San José, Costa Rica</span>
+      <a class="footer-up" href="#contenido">Back to top ↑</a>
+      <p class="demo-note">GitHub: github.com/KayroRR · Email: kayro.romero@ucr.ac.cr</p>
+    </footer>
+  </body>
+</html>
