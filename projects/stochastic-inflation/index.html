@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#071114" />
+    <meta name="description" content="Stochastic inflation in de Sitter spacetime: numerical solvers for coupled Langevin and Fokker-Planck equations." />
+    <title>Stochastic Inflation in de Sitter | Kayro Romero Ramírez</title>
+    <link rel="icon" type="image/svg+xml" href="/logo-cosmica.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/css/styles.css" />
+    <script>window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']] } };</script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="module" src="/src/js/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Kayro Romero, home">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="15.5" stroke="currentColor" stroke-width="1.3"/><ellipse cx="20" cy="20" rx="8" ry="16" transform="rotate(42 20 20)" stroke="currentColor" stroke-width="1.3"/><circle cx="20" cy="20" r="2.4" fill="currentColor"/><circle cx="31.5" cy="9" r="2" fill="#f0a878"/></svg></span>
+        <span class="brand-name">KAYRO ROMERO</span><span class="brand-divider">/</span><span class="brand-descriptor">Theoretical Physics &amp; Cosmology</span>
+      </a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><span></span><span></span></button>
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <a href="/research/">Research</a>
+        <a href="/projects/">Projects</a>
+        <a href="/outreach/">Teaching &amp; Outreach</a>
+        <a class="nav-contact" href="/contact/">Contact <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+
+    <main id="contenido" class="inner-page">
+      <section class="page-hero publication-hero">
+        <div class="page-kicker"><span>Project 01 / Theoretical Cosmology</span><span class="live-indicator">Open Quantum Systems · de Sitter</span></div>
+        <div class="page-hero-layout">
+          <div><p class="eyebrow">Early-Universe Cosmology</p><h1>Stochastic<br />inflation in<br /><em>de Sitter space.</em></h1></div>
+          <p class="page-lede">Modeling coarse-grained primordial inflaton fluctuations as an open quantum system via coupled Langevin trajectory ensembles and Fokker–Planck PDEs.</p>
+        </div>
+        <div class="pub-hero-foot"><span>Supervisor: Dr. Marlon Brenes</span><span>ÑUTI Congress Selected Talk (Dec 2025)</span></div>
+      </section>
+
+      <section class="project-article">
+        <div class="project-container">
+          <a class="back-crumb" href="/projects/">← Back to all projects</a>
+
+          <div class="specs-grid">
+            <div class="spec-card"><span>Formalism</span><strong>Starobinsky–Vennin Stochastic</strong></div>
+            <div class="spec-card"><span>SDE Solver</span><strong>Euler–Maruyama Ensembles</strong></div>
+            <div class="spec-card"><span>PDE Benchmark</span><strong>Fokker–Planck Evolution</strong></div>
+          </div>
+
+          <h2>1. Theoretical Framework</h2>
+          <p>
+            During cosmic inflation, sub-Hubble quantum vacuum fluctuations are continuously stretched beyond the Hubble radius $H^{-1}$, undergoing decoherence and acting as a classical stochastic backreaction on the coarse-grained super-Hubble inflaton field $\bar{\phi}(N)$, parametrized by the number of $e$-folds $N = \ln a$:
+          </p>
+          <div class="math-box">
+            $$\frac{d\bar{\phi}}{dN} = -\frac{V'(\bar{\phi})}{3H^2(\bar{\phi})} + \frac{H(\bar{\phi})}{2\pi}\xi(N), \qquad \langle \xi(N)\xi(N') \rangle = \delta(N - N')$$
+          </div>
+          <p>
+            Equivalently, the one-point probability density function $P(\phi, N)$ of the coarse-grained field satisfies the Fokker–Planck equation, enabling non-perturbative studies of quantum diffusion, heavy non-Gaussian tails, and primordial black hole formation thresholds beyond standard slow-roll perturbation theory.
+          </p>
+
+          <h2>2. Numerical Implementation</h2>
+          <ul>
+            <li><strong>Stochastic Trajectory Ensembles:</strong> Implemented vectorized Euler–Maruyama solvers in Python to simulate $10^5$ independent Langevin realizations in phase space $(\bar{\phi}, \bar{\pi}_\phi)$.</li>
+            <li><strong>Fokker–Planck Solver:</strong> Built a finite-difference PDE integrator for $P(\phi, N)$ with absorbing boundary conditions at the end-of-inflation surface to compute first-passage time distributions ($\mathcal{N}$-fold statistics).</li>
+            <li><strong>Analytical Validation:</strong> Benchmarked numerical histograms and Fokker–Planck densities against exact Gaussian slow-roll stationary distributions in quadratic and plateau potentials.</li>
+          </ul>
+
+          <div class="project-actions">
+            <a class="button button-dark" href="https://github.com/KayroRR/Stochastic_Inflation" target="_blank">View Source Code on GitHub ↗</a>
+            <a class="button button-outline" style="color:#132a2b;border-color:#132a2b;" href="/projects/">Explore Other Projects</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="footer-brand" href="/">KAYRO ROMERO<span> · Theoretical Physics</span></a>
+      <span>University of Costa Rica · San José, Costa Rica</span>
+      <a class="footer-up" href="#contenido">Back to top ↑</a>
+      <p class="demo-note">GitHub: github.com/KayroRR · Email: kayro.romero@ucr.ac.cr</p>
+    </footer>
+  </body>
+</html>
