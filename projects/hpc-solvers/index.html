@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#071114" />
+    <meta name="description" content="1st Place CeNAT-CONARE HPC Challenge: Parallel optimization of PDE and gravitational N-body solvers using MPI and OpenMP." />
+    <title>Parallel PDE &amp; N-Body Solvers | Kayro Romero Ramírez</title>
+    <link rel="icon" type="image/svg+xml" href="/logo-cosmica.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/css/styles.css" />
+    <script>window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']] } };</script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="module" src="/src/js/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Kayro Romero, home">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="15.5" stroke="currentColor" stroke-width="1.3"/><ellipse cx="20" cy="20" rx="8" ry="16" transform="rotate(42 20 20)" stroke="currentColor" stroke-width="1.3"/><circle cx="20" cy="20" r="2.4" fill="currentColor"/><circle cx="31.5" cy="9" r="2" fill="#f0a878"/></svg></span>
+        <span class="brand-name">KAYRO ROMERO</span><span class="brand-divider">/</span><span class="brand-descriptor">Theoretical Physics &amp; Cosmology</span>
+      </a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><span></span><span></span></button>
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <a href="/research/">Research</a>
+        <a href="/projects/">Projects</a>
+        <a href="/outreach/">Teaching &amp; Outreach</a>
+        <a class="nav-contact" href="/contact/">Contact <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+
+    <main id="contenido" class="inner-page">
+      <section class="page-hero publication-hero">
+        <div class="page-kicker"><span>Project 03 / High-Performance Computing</span><span class="live-indicator">1st Place · CeNAT–CONARE HPC Challenge</span></div>
+        <div class="page-hero-layout">
+          <div><p class="eyebrow">Scientific Computing</p><h1>Parallel PDE &amp;<br /><em>$N$-body</em> solver<br />optimization.</h1></div>
+          <p class="page-lede">Hybrid MPI and OpenMP parallelization of elliptic PDE and gravitational $N$-body solvers on distributed cluster architectures.</p>
+        </div>
+        <div class="pub-hero-foot"><span>C · C++ · MPI · OpenMP · SLURM</span><span>Kabré Supercomputing Cluster</span></div>
+      </section>
+
+      <section class="project-article">
+        <div class="project-container">
+          <a class="back-crumb" href="/projects/">← Back to all projects</a>
+
+          <div class="specs-grid">
+            <div class="spec-card"><span>Parallel Model</span><strong>Hybrid MPI + OpenMP</strong></div>
+            <div class="spec-card"><span>Recognition</span><strong>1st Place Optimization Challenge</strong></div>
+            <div class="spec-card"><span>Infrastructure</span><strong>CeNAT–CONARE HPC Cluster</strong></div>
+          </div>
+
+          <h2>1. Problem Scope &amp; Parallel Architecture</h2>
+          <p>
+            Large-scale physical simulations—ranging from Poisson potential solvers to gravitational $N$-body evolution—are bottlenecked by $\mathcal{O}(N^2)$ pairwise force evaluations and inter-node memory latency. In the January 2025 CeNAT–CONARE HPC School Optimization Challenge, we re-engineered serial C/C++ solvers for distributed execution on multi-node SLURM partitions.
+          </p>
+
+          <h2>2. Optimization Techniques</h2>
+          <ul>
+            <li><strong>Domain Decomposition &amp; Non-Blocking MPI:</strong> Partitioned spatial grids across MPI ranks using halo-exchange buffers with non-blocking point-to-point communication (<code>MPI_Isend</code> / <code>MPI_Irecv</code>) to overlap communication with interior stencil computation.</li>
+            <li><strong>Shared-Memory Threading &amp; Cache Locality:</strong> Exploited OpenMP thread teams within compute nodes, enforcing first-touch NUMA memory alignment, loop tiling, and Newton's third-law symmetry to halve pairwise force operations.</li>
+            <li><strong>Strong &amp; Weak Scaling Benchmarks:</strong> Profiled wall-clock runtime and parallel efficiency across increasing core counts, achieving top execution speed and numerical accuracy among competing teams.</li>
+          </ul>
+
+          <div class="project-actions">
+            <a class="button button-dark" href="https://github.com/KayroRR" target="_blank">GitHub Profile ↗</a>
+            <a class="button button-outline" style="color:#132a2b;border-color:#132a2b;" href="/projects/">Explore Other Projects</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="footer-brand" href="/">KAYRO ROMERO<span> · Theoretical Physics</span></a>
+      <span>University of Costa Rica · San José, Costa Rica</span>
+      <a class="footer-up" href="#contenido">Back to top ↑</a>
+      <p class="demo-note">GitHub: github.com/KayroRR · Email: kayro.romero@ucr.ac.cr</p>
+    </footer>
+  </body>
+</html>
