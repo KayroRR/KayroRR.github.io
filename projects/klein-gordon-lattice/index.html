@@ -4,13 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#071114" />
-    <meta name="description" content="Emergence of classical field theory from coupled anharmonic oscillator lattices and numerical comparison with the Klein-Gordon equation." />
+    <meta name="description" content="Emergence of Classical Field Theory from Infinite Networks of Coupled Oscillators and numerical comparison with the Klein-Gordon equation." />
     <title>Classical Field Emergence &amp; Klein–Gordon | Kayro Romero Ramírez</title>
     <link rel="icon" type="image/svg+xml" href="/logo-cosmica.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/src/css/styles.css" />
+    <style>
+      .code-box{background:#0b191c;color:#d5dcd4;border-left:3px solid #80e5d9;padding:18px 22px;margin:22px 0;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:12.5px;line-height:1.65}
+      .code-box code{white-space:pre}
+    </style>
     <script>window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']] } };</script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script type="module" src="/src/js/main.js"></script>
@@ -33,12 +37,12 @@
 
     <main id="contenido" class="inner-page">
       <section class="page-hero publication-hero">
-        <div class="page-kicker"><span>Project 02 / Classical Field Theory</span><span class="live-indicator">Continuum Limit · Symplectic Numerics</span></div>
+        <div class="page-kicker"><span>Project 03 / Classical Field Theory &amp; Analytical Mechanics</span><span class="live-indicator">Continuum Limit ($a \to 0$) · Symplectic Numerics</span></div>
         <div class="page-hero-layout">
-          <div><p class="eyebrow">Analytical &amp; Computational Mechanics</p><h1>Anharmonic lattices<br />to <em>Klein–Gordon</em><br />fields.</h1></div>
-          <p class="page-lede">Numerically deriving classical field dynamics from infinite networks of coupled anharmonic oscillators and verifying continuum convergence against the Klein–Gordon PDE.</p>
+          <div><p class="eyebrow">Discrete-to-Continuum Transition</p><h1>Anharmonic networks<br />to <em>Klein–Gordon</em><br />fields.</h1></div>
+          <p class="page-lede">Promoting coupled anharmonic oscillator lattices to continuous scalar fields in the limit $a \to 0$ and benchmarking symplectic lattice evolution against spectral Klein–Gordon solutions.</p>
         </div>
-        <div class="pub-hero-foot"><span>Python · NumPy · SciPy · Matplotlib</span><span>Velocity Verlet · Fourier Spectral Analysis</span></div>
+        <div class="pub-hero-foot"><span>Python · NumPy · Matplotlib</span><span>Velocity Verlet · Fourier Normal Modes · Noether Charges</span></div>
       </section>
 
       <section class="project-article">
@@ -47,38 +51,58 @@
 
           <div class="specs-grid">
             <div class="spec-card"><span>Integrator</span><strong>Symplectic Velocity Verlet</strong></div>
-            <div class="spec-card"><span>Continuum PDE</span><strong>Klein–Gordon &amp; $\phi^4$ Field</strong></div>
-            <div class="spec-card"><span>Validation</span><strong>$L^2$ Error Scaling ($a \to 0$)</strong></div>
+            <div class="spec-card"><span>Continuum PDE</span><strong>Self-Interacting Klein–Gordon</strong></div>
+            <div class="spec-card"><span>Convergence Rate</span><strong>$\epsilon_{L^2} \propto a^2$ (Slope $2.00$)</strong></div>
           </div>
 
-          <h2>1. Physical Motivation &amp; Continuum Limit</h2>
+          <h2>1. Theoretical Framework &amp; Continuum Limit ($a \to 0$)</h2>
           <p>
-            Classical and quantum field theories arise naturally as the continuum limit of discrete mechanical systems with infinitely many degrees of freedom. Consider a one-dimensional network of $N$ coupled oscillators separated by lattice spacing $a$, subject to nearest-neighbor harmonic coupling $\kappa$, an on-site pinning potential $m\omega_0^2$, and anharmonic self-interaction terms ($\lambda$):
+            To bridge discrete analytical mechanics with classical field theory, we model a one-dimensional periodic network of $N$ particles of mass $m$ separated by equilibrium lattice spacing $a$. Expanding the nearest-neighbor interaction potential $U(a + \Delta q_n)$ ($\Delta q_n \equiv q_{n+1} - q_n$) to fourth order ($\kappa, \alpha, \beta$) and adding an on-site nonlinear potential $V_{\text{NL}}(q_n) = \frac{g_3}{3}q_n^3 + \frac{g_4}{4}q_n^4$ gives the discrete Lagrangian:
           </p>
           <div class="math-box">
-            $$L = \sum_{n=1}^{N} \left[ \frac{1}{2}m\dot{q}_n^2 - \frac{1}{2}\kappa(q_{n+1} - q_n)^2 - \frac{1}{2}m\omega_0^2 q_n^2 - \frac{\lambda}{4}q_n^4 \right]$$
+            $$L(q,\dot{q}) = \sum_{n=1}^{N}\left[\frac{1}{2}m\dot{q}_n^2 - \frac{1}{2}\kappa(q_{n+1}-q_n)^2 - \frac{\alpha}{3}\kappa(q_{n+1}-q_n)^3 - \frac{\beta}{4}\kappa(q_{n+1}-q_n)^4 - \frac{1}{2}m\omega_0^2 q_n^2 - V_{\text{NL}}(q_n)\right]$$
           </div>
           <p>
-            Defining the spatial coordinate $x = na$, mass density $\rho = m/a$, tension $\tau = \kappa a$, wave speed $c = \sqrt{\tau/\rho}$, and rescaled scalar field $\phi(x,t) = \sqrt{\rho}\,q_n(t)$, taking the continuum limit $a \to 0$ ($N \to \infty$ with $L = Na$ fixed) transforms the discrete equations of motion into the relativistic Klein–Gordon field equation (with quartic self-interaction when $\lambda \neq 0$):
+            Taking the continuum limit $N \to \infty$, $a \to 0$ at fixed physical length $l = Na$ with macroscopic density $\rho \equiv m/a$, tension $\tau \equiv \kappa a$, wave speed $c \equiv \sqrt{\tau/\rho} = a\sqrt{\kappa/m}$, mass parameter $\mu \equiv \omega_0/c$, scalar field $\phi(x_n, t) \equiv \sqrt{\rho}\,q_n(t)$, and rescaled couplings $\lambda_3 = g_3/(a\rho^{3/2})$, $\lambda_4 = g_4/(a\rho^2)$, the discrete Poisson bracket $\{\phi(x_n,t), \pi(x_m,t)\} = \delta_{nm}/a$ converges to $\{\phi(x,t), \pi(y,t)\} = \delta(x-y)$, and Euler–Lagrange equations yield the self-interacting Klein–Gordon equation:
           </p>
           <div class="math-box">
-            $$\left(\frac{1}{c^2}\frac{\partial^2}{\partial t^2} - \frac{\partial^2}{\partial x^2} + \mu^2\right)\phi(x,t) + \tilde{\lambda}\phi^3(x,t) = 0, \qquad \mu \equiv \frac{\omega_0}{c}$$
+            $$\left(\frac{1}{c^2}\partial_t^2 - \partial_x^2 + \mu^2\right)\phi(x,t) = -\frac{1}{c^2}\frac{dV_{\text{int}}(\phi)}{d\phi}, \qquad V_{\text{int}}(\phi) = \frac{\lambda_3}{3}\phi^3 + \frac{\lambda_4}{4}\phi^4$$
           </div>
+          <p>
+            In the infrared regime ($k_k a \ll 1$), the discrete normal-mode dispersion $\omega_k = \sqrt{\omega_0^2 + \frac{4\kappa}{m}\sin^2(k_k a/2)}$ converges to $\omega_{\text{KG}}(k_j) = c\sqrt{k_j^2 + \mu^2}$, with leading truncation discrepancy $\mathcal{O}(a^2\partial_x^4\phi)$. Time- and space-translation symmetries guarantee exact conservation of Noether energy $H[\phi,\pi]$ and linear momentum $P[\phi,\pi]$.
+          </p>
 
-          <h2>2. Numerical Methodology</h2>
+          <h2>2. Symplectic &amp; Spectral Numerical Architecture</h2>
+          <p>
+            On a periodic domain $x \in [0, l]$ ($l = 10.0, \rho = 1.0, \tau = 1.0, c = 1.0, \mu = 0.8$), both the discrete lattice accelerations (<code>acc_disc</code>) and the spectral Klein–Gordon field accelerations (<code>acc_field</code>) are evolved via a shared second-order symplectic <strong>Velocity Verlet</strong> integrator (<code>verlet_step</code>) subject to CFL stability $\Delta t = \nu_{\text{CFL}} a / c$:
+          </p>
+          <pre class="code-box"><code>def acc_disc(q, m, kappa, w0, a=0., b=0., g3=0., g4=0.):
+    dqr = np.roll(q, -1) - q
+    dql = q - np.roll(q, 1)
+    fl = kappa * (dqr - dql) - m * (w0**2) * q
+    fs = -g3 * (q**2) - g4 * (q**3)
+    fk = kappa * (a * (dqr**2 - dql**2) + b * (dqr**3 - dql**3))
+    return (fl + fs + fk) / m
+
+def acc_field(phi, k2, c, mu, l3=0., l4=0.):
+    d2 = np.real(np.fft.ifft(-k2 * np.fft.fft(phi)))
+    return (c**2) * d2 - (mu * c)**2 * phi - l3 * (phi**2) - l4 * (phi**3)
+
+def verlet_step(u, v, dt, f_acc, *args):
+    vm = v + 0.5 * dt * f_acc(u, *args)
+    un = u + dt * vm
+    vn = vm + 0.5 * dt * f_acc(un, *args)
+    return un, vn</code></pre>
+
+          <h2>3. Quantitative Results</h2>
           <ul>
-            <li><strong>Structure-Preserving Time Evolution:</strong> Implemented a second-order symplectic <em>Velocity Verlet</em> integrator to evolve the coupled Hamiltonian system over long integration windows without artificial numerical dissipation.</li>
-            <li><strong>Discrete vs. Continuum Benchmarking:</strong> Initialized localized Gaussian wave packets and standing wave profiles across progressively finer lattices ($N = 32, 64, 128, 256, 512$), comparing the discrete trajectory $q_n(t)$ directly against the analytical Fourier solution of the continuum Klein–Gordon equation.</li>
-            <li><strong>Fourier Mode Energy Transfer:</strong> Projected the instantaneous lattice state onto normal coordinates $Q_k(t)$ to track modal energy conservation in the linear regime ($\lambda = 0$) and nonlinear inter-mode energy cascade when anharmonic coupling ($\lambda > 0$) is activated.</li>
+            <li><strong>Spatiotemporal Energy Transport:</strong> For $N = 64$ anharmonic oscillators ($\alpha = 0.35, \beta = 0.25$), local energy density $h_n(t)$ propagates coherently across periodic boundaries at group velocity $v_g \approx c$ with a trailing dispersive wake induced by the mass parameter $\mu = 0.8$.</li>
+            <li><strong>Nonlinear Harmonic Cascade &amp; Noether Conservation:</strong> Initializing a pure excitation in the fundamental mode $k = 1$, anharmonic couplings break modal orthogonality and transfer energy $E_k(t) = Nm(|\dot{Q}_k(t)|^2 + \omega_k^2|Q_k(t)|^2)$ into higher harmonics ($k = 2, 3, 4$), while total Hamiltonian energy $H(t)$ remains conserved within relative fluctuations below $10^{-5}$.</li>
+            <li><strong>Pointwise Convergence &amp; $\mathcal{O}(a^2)$ Scaling:</strong> Under full self-interactions ($\lambda_3 = 0.25, \lambda_4 = 0.40$), refining the lattice from $N = 32$ ($a = 0.3125$) to $N = 128$ ($a = 0.0781$) eliminates coarse phase lag across multiple periodic crossings ($t \in [0, 12.5]$). Evaluating the global error $\epsilon_{L^2}(a,T) = \sqrt{a\sum_{n=0}^{N-1}|\sqrt{\rho}q_n(T) - \phi_{\text{field}}(x_n, T)|^2}$ at $T = 4.0$ across $N \in \{32, 64, 128, 256, 512\}$ yields a logarithmic slope of exactly $2.00$ ($\epsilon_{L^2} \propto a^2$) in both free and interacting regimes.</li>
           </ul>
 
-          <h2>3. Key Results</h2>
-          <p>
-            In the harmonic regime ($\lambda = 0$), the $L^2$ norm difference $\|\phi_{\text{discrete}}(t) - \phi_{\text{KG}}(t)\|_{L^2}$ exhibits second-order spatial convergence $\mathcal{O}(a^2)$ as the lattice spacing decreases, confirming the exact emergence of continuum Klein–Gordon dispersion $\omega^2(k) = c^2(k^2 + \mu^2)$ for long-wavelength modes ($ka \ll 1$). When anharmonic terms are introduced, high-wavenumber lattice dispersion competes with nonlinear steepening, driving structured energy transfer across Fourier modes while total Hamiltonian energy remains bounded to $\Delta H / H_0 \sim 10^{-10}$.
-          </p>
-
           <div class="project-actions">
-            <a class="button button-dark" href="https://github.com/KayroRR/Oscilators_KelinGordon" target="_blank">View Source Code on GitHub ↗</a>
+            <a class="button button-dark" href="https://github.com/KayroRR/Classical-field-theory-from-anharmonic-oscillators" target="_blank">View Source Code &amp; Animations on GitHub ↗</a>
             <a class="button button-outline" style="color:#132a2b;border-color:#132a2b;" href="/projects/">Explore Other Projects</a>
           </div>
         </div>
