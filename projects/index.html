@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#071114" />
-    <meta name="description" content="Selected computational physics repositories and analytical studies by Kayro Romero Ramírez." />
+    <meta name="description" content="Selected theoretical and computational physics projects by Kayro Romero Ramírez." />
     <title>Projects | Kayro Romero Ramírez</title>
     <link rel="icon" type="image/svg+xml" href="/logo-cosmica.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -33,57 +33,64 @@
 
     <main id="contenido" class="inner-page">
       <section class="page-hero publication-hero">
-        <div class="page-kicker"><span>03 / Computational Portfolio</span><span class="live-indicator">Numerical Solvers · Analytical Derivations</span></div>
+        <div class="page-kicker"><span>03 / Research &amp; Computational Portfolio</span><span class="live-indicator">Analytical Derivations · Numerical Solvers · ALMA</span></div>
         <div class="page-hero-layout">
-          <div><p class="eyebrow">Selected Projects</p><h1>Reproducible<br />solvers &amp;<br /><em>field models.</em></h1></div>
-          <p class="page-lede">Detailed mathematical formulations and numerical implementations in Python and C++ covering stochastic inflation, continuum field emergence, and parallel HPC optimization.</p>
+          <div><p class="eyebrow">Selected Projects</p><h1>Reproducible<br />solvers &amp;<br /><em>cosmic probes.</em></h1></div>
+          <p class="page-lede">Detailed theoretical frameworks, interferometric data reduction pipelines, and symplectic numerical implementations across cosmology, field theory, and HPC.</p>
         </div>
-        <div class="pub-hero-foot"><span>GitHub: @KayroRR</span><span>Python · C++ · MPI/OpenMP · Symplectic Integrators</span></div>
+        <div class="pub-hero-foot"><span>GitHub: @KayroRR</span><span>Python · CASA / CARTA · C++ · MPI/OpenMP</span></div>
       </section>
 
       <section class="publications-section section-shell">
-        <div class="section-label"><span>01 / Project Directory</span><span class="results-label" aria-live="polite">3 selected projects</span></div>
+        <div class="section-label"><span>01 / Project Directory</span><span class="results-label" aria-live="polite">4 selected projects</span></div>
         <div class="pub-intro">
-          <h2>Code built to<br /><em>test theory.</em></h2>
+          <h2>Theory tested<br /><em>by computation.</em></h2>
           <div class="demo-alert">
             <span class="alert-mark">i</span>
-            <p><strong>Full Technical Breakdowns.</strong> Select any project below to inspect its mathematical formulation, numerical integration scheme, convergence benchmarks, and source repository.</p>
+            <p><strong>Full Technical Breakdowns.</strong> Select any project below to inspect its research question, mathematical formulation, numerical or observational methodology, and quantitative results.</p>
           </div>
         </div>
 
         <div class="filter-row" role="group" aria-label="Filter projects">
-          <button class="filter-button is-active" data-filter="all" aria-pressed="true">All <span>03</span></button>
-          <button class="filter-button" data-filter="cosmology" aria-pressed="false">Cosmology <span>01</span></button>
+          <button class="filter-button is-active" data-filter="all" aria-pressed="true">All <span>04</span></button>
+          <button class="filter-button" data-filter="cosmology" aria-pressed="false">Cosmology <span>02</span></button>
           <button class="filter-button" data-filter="qft" aria-pressed="false">Field Theory <span>01</span></button>
           <button class="filter-button" data-filter="hpc" aria-pressed="false">HPC <span>01</span></button>
         </div>
 
         <div class="publication-list">
           <article class="publication-card" data-category="cosmology">
-            <div class="pub-card-meta"><span>COSMOLOGY · DE SITTER SDEs</span><span>01</span></div>
-            <h3><a href="/projects/stochastic-inflation/">Stochastic Inflation: Langevin &amp; Fokker–Planck Solvers in de Sitter</a></h3>
-            <p>Numerical framework simulating coarse-grained inflaton fluctuations as Markovian noise, benchmarking trajectory ensembles against analytical slow-roll Gaussian limits.</p>
-            <div class="pub-card-bottom"><span>Python · NumPy · SciPy · SDEs</span><a class="doi-pending" href="/projects/stochastic-inflation/">Read Technical Overview →</a></div>
+            <div class="pub-card-meta"><span>COSMOLOGY · ALMA &amp; STRONG LENSING</span><span>01</span></div>
+            <h3><a href="/projects/co-fwhm-cosmology/">Cosmological Implications of the $L'_{\text{CO}}\text{--FWHM}$ Relation for High-$z$ Dusty Star-Forming Galaxies</a></h3>
+            <p>Evaluating the magnification-invariant $L'_{\text{CO}(1-0)}\text{--FWHM}$ scaling relation as a high-redshift ($z > 1$) dark energy probe by combining ALMA interferometric characterization of HARPAS-51 (CASA/CARTA) with population-level constraints on $\Lambda\text{CDM}$, $w\text{CDM}$, and CPL models.</p>
+            <div class="pub-card-bottom"><span>ALMA · CASA · CARTA · Dark Energy ($w_0, w_a$)</span><a class="doi-pending" href="/projects/co-fwhm-cosmology/">Read Technical Overview →</a></div>
+          </article>
+
+          <article class="publication-card" data-category="cosmology">
+            <div class="pub-card-meta"><span>EARLY-UNIVERSE COSMOLOGY · SDEs &amp; PDEs</span><span>02</span></div>
+            <h3><a href="/projects/stochastic-inflation/">Stochastic Inflation: Simulating Quantum Fluctuations as Coupled Fields</a></h3>
+            <p>Monte Carlo Markov-chain simulations of coupled Hamiltonian Langevin equations (Euler–Maruyama) and 2D phase-space Fokker–Planck PDEs in conformal time $\tau$, capturing super-Hubble horizon freeze-out, Gaussian PDF convergence, and three dynamical regimes.</p>
+            <div class="pub-card-bottom"><span>Python · Monte Carlo · Langevin &amp; Fokker–Planck</span><a class="doi-pending" href="/projects/stochastic-inflation/">Read Technical Overview →</a></div>
           </article>
 
           <article class="publication-card" data-category="qft">
-            <div class="pub-card-meta"><span>CLASSICAL FIELD THEORY · CONTINUUM LIMIT</span><span>02</span></div>
-            <h3><a href="/projects/klein-gordon-lattice/">Emergence of Classical Field Theory from Anharmonic Oscillator Networks</a></h3>
-            <p>Numerical simulation of coupled anharmonic oscillator lattices in the continuum limit ($a \to 0$), comparing discrete dynamics against the Klein–Gordon equation via Velocity Verlet integration and $L^2$ error convergence.</p>
-            <div class="pub-card-bottom"><span>Python · Velocity Verlet · Fourier Modes</span><a class="doi-pending" href="/projects/klein-gordon-lattice/">Read Technical Overview →</a></div>
+            <div class="pub-card-meta"><span>CLASSICAL FIELD THEORY · CONTINUUM LIMIT</span><span>03</span></div>
+            <h3><a href="/projects/klein-gordon-lattice/">Emergence of Classical Field Theory from Infinite Networks of Coupled Oscillators</a></h3>
+            <p>Symplectic Velocity Verlet simulations of nonlinear anharmonic oscillator lattices in the continuum limit ($a \to 0$), demonstrating modal energy cascades from $k=1$, Noether conservation, and exact $\mathcal{O}(a^2)$ convergence toward the self-interacting Klein–Gordon equation.</p>
+            <div class="pub-card-bottom"><span>Python · Velocity Verlet · FFT Spectral Solver</span><a class="doi-pending" href="/projects/klein-gordon-lattice/">Read Technical Overview →</a></div>
           </article>
 
           <article class="publication-card" data-category="hpc">
-            <div class="pub-card-meta"><span>HIGH-PERFORMANCE COMPUTING · 1ST PLACE</span><span>03</span></div>
+            <div class="pub-card-meta"><span>HIGH-PERFORMANCE COMPUTING · 1ST PLACE</span><span>04</span></div>
             <h3><a href="/projects/hpc-solvers/">Parallel PDE &amp; $N$-Body Solver Optimization (MPI / OpenMP)</a></h3>
-            <p>Hybrid shared- and distributed-memory parallelization of partial differential equation and gravitational $N$-body solvers on CeNAT–CONARE's HPC cluster, achieving 1st Place in the 2025 HPC School Challenge.</p>
+            <p>Hybrid shared- and distributed-memory parallelization of elliptic PDE and gravitational $N$-body solvers on CeNAT–CONARE's Kabré HPC cluster, achieving 1st Place in the 2025 HPC School Optimization Challenge.</p>
             <div class="pub-card-bottom"><span>C · C++ · MPI · OpenMP · SLURM</span><a class="doi-pending" href="/projects/hpc-solvers/">Read Technical Overview →</a></div>
           </article>
         </div>
 
         <div class="pub-footnote">
           <span>01</span>
-          <p>Every numerical experiment is paired with analytical derivations, conservation audits, and open-source code.</p>
+          <p>Every investigation pairs analytical derivations with reproducible numerical benchmarks or interferometric data pipelines.</p>
         </div>
       </section>
 
