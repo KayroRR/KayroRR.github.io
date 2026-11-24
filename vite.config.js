@@ -10,6 +10,7 @@ export default defineConfig({
         projects: resolve(process.cwd(), 'projects/index.html'),
         projectInflation: resolve(process.cwd(), 'projects/stochastic-inflation/index.html'),
         projectKleinGordon: resolve(process.cwd(), 'projects/klein-gordon-lattice/index.html'),
+        projectCoFwhm: resolve(process.cwd(), 'projects/co-fwhm-cosmology/index.html'),
         projectHpc: resolve(process.cwd(), 'projects/hpc-solvers/index.html'),
         outreach: resolve(process.cwd(), 'outreach/index.html'),
         contact: resolve(process.cwd(), 'contact/index.html'),
