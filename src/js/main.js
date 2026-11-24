@@ -22,7 +22,9 @@ if (menuToggle && siteNav) {
 const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
 document.querySelectorAll('.site-nav a').forEach((link) => {
   const linkPath = new URL(link.href).pathname.replace(/\/$/, '') || '/';
-  if (linkPath === currentPath) link.setAttribute('aria-current', 'page');
+  if (linkPath === currentPath || (linkPath !== '/' && currentPath.startsWith(linkPath))) {
+    link.setAttribute('aria-current', 'page');
+  }
 });
 
 const filterButtons = [...document.querySelectorAll('.filter-button')];
