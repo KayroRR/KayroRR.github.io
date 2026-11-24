@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#071114" />
-    <meta name="description" content="Stochastic inflation in de Sitter spacetime: numerical solvers for coupled Langevin and Fokker-Planck equations." />
-    <title>Stochastic Inflation in de Sitter | Kayro Romero Ramírez</title>
+    <meta name="description" content="Stochastic Inflation: Simulating Quantum Fluctuations as Coupled Fields via Langevin and Fokker-Planck equations." />
+    <title>Stochastic Inflation: Coupled Fields | Kayro Romero Ramírez</title>
     <link rel="icon" type="image/svg+xml" href="/logo-cosmica.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -33,12 +33,12 @@
 
     <main id="contenido" class="inner-page">
       <section class="page-hero publication-hero">
-        <div class="page-kicker"><span>Project 01 / Theoretical Cosmology</span><span class="live-indicator">Open Quantum Systems · de Sitter</span></div>
+        <div class="page-kicker"><span>Project 02 / Early-Universe Cosmology</span><span class="live-indicator">Quantum-to-Classical Transition · de Sitter</span></div>
         <div class="page-hero-layout">
-          <div><p class="eyebrow">Early-Universe Cosmology</p><h1>Stochastic<br />inflation in<br /><em>de Sitter space.</em></h1></div>
-          <p class="page-lede">Modeling coarse-grained primordial inflaton fluctuations as an open quantum system via coupled Langevin trajectory ensembles and Fokker–Planck PDEs.</p>
+          <div><p class="eyebrow">Stochastic Cosmology</p><h1>Quantum fluctuations<br />as <em>coupled</em><br />stochastic fields.</h1></div>
+          <p class="page-lede">Simulating early-universe inflaton dynamics via Monte Carlo Markov-chain ensembles of coupled Langevin trajectories and 2D phase-space Fokker–Planck PDEs.</p>
         </div>
-        <div class="pub-hero-foot"><span>Supervisor: Dr. Marlon Brenes</span><span>ÑUTI Congress Selected Talk (Dec 2025)</span></div>
+        <div class="pub-hero-foot"><span>Python · NumPy · SciPy</span><span>Euler–Maruyama SDEs · Finite-Difference Fokker–Planck</span></div>
       </section>
 
       <section class="project-article">
@@ -46,27 +46,46 @@
           <a class="back-crumb" href="/projects/">← Back to all projects</a>
 
           <div class="specs-grid">
-            <div class="spec-card"><span>Formalism</span><strong>Starobinsky–Vennin Stochastic</strong></div>
-            <div class="spec-card"><span>SDE Solver</span><strong>Euler–Maruyama Ensembles</strong></div>
-            <div class="spec-card"><span>PDE Benchmark</span><strong>Fokker–Planck Evolution</strong></div>
+            <div class="spec-card"><span>SDE Scheme</span><strong>Euler–Maruyama Markov Chains</strong></div>
+            <div class="spec-card"><span>PDE Evolution</span><strong>2D Phase-Space Fokker–Planck</strong></div>
+            <div class="spec-card"><span>Horizon Cutoff</span><strong>$k_\sigma = \sigma a H$, $\sigma \ll (m/H)^{2/3}$</strong></div>
           </div>
 
-          <h2>1. Theoretical Framework</h2>
+          <h2>1. Problem Statement &amp; Hamiltonian Stochastic Formalism</h2>
           <p>
-            During cosmic inflation, sub-Hubble quantum vacuum fluctuations are continuously stretched beyond the Hubble radius $H^{-1}$, undergoing decoherence and acting as a classical stochastic backreaction on the coarse-grained super-Hubble inflaton field $\bar{\phi}(N)$, parametrized by the number of $e$-folds $N = \ln a$:
+            During cosmic inflation, vacuum quantum fluctuations of the scalar inflaton field $\phi$ are stretched beyond the Hubble radius $R_H = c/H$ ($H = \dot{a}/a$). Upon crossing the coarse-graining horizon scale $k_\sigma = \sigma a H$, non-commuting quantum operators undergo decoherence into two-mode squeezed states, acting as classical stochastic noise on long-wavelength super-Hubble modes ($\phi = \bar{\phi} + \phi_Q$, $\pi_\phi = \bar{\pi} + \pi_Q$).
+          </p>
+          <p>
+            In conformal time $\tau$, the coupled Hamiltonian dynamics of the coarse-grained phase-space vector $\Phi = (\bar{\phi}, \bar{\pi})^T$ is governed by the matrix Langevin equation:
           </p>
           <div class="math-box">
-            $$\frac{d\bar{\phi}}{dN} = -\frac{V'(\bar{\phi})}{3H^2(\bar{\phi})} + \frac{H(\bar{\phi})}{2\pi}\xi(N), \qquad \langle \xi(N)\xi(N') \rangle = \delta(N - N')$$
+            $$\dot{\Phi} = A(\tau)\Phi + \xi(\tau), \qquad A(\tau) = \begin{pmatrix} 0 & N/a^3 \\ -m^2 N a^3 & 0 \end{pmatrix}, \qquad \xi(\tau) = \begin{pmatrix} \xi_\phi(\tau) \\ \xi_\pi(\tau) \end{pmatrix}$$
           </div>
           <p>
-            Equivalently, the one-point probability density function $P(\phi, N)$ of the coarse-grained field satisfies the Fokker–Planck equation, enabling non-perturbative studies of quantum diffusion, heavy non-Gaussian tails, and primordial black hole formation thresholds beyond standard slow-roll perturbation theory.
+            where the quantum noise integrals are filtered by the window-function derivative $\dot{W}(k/k_\sigma)$—peaking sharply at the horizon-crossing threshold $k_\sigma$—and evaluated using conformal de Sitter mode functions $\phi_k(\tau) = \frac{1}{a\sqrt{2k}}\left(1 + \frac{i}{k\tau}\right)e^{ik\tau}$ and $\pi_k(\tau) = \sqrt{\frac{k}{2}}\,i\,e^{ik\tau}$.
+          </p>
+          <p>
+            Correspondingly, the joint probability density function $P(\Phi, \tau)$ satisfies the two-dimensional Fokker–Planck partial differential equation combining deterministic drift with quantum diffusion:
+          </p>
+          <div class="math-box">
+            $$\frac{\partial P(\Phi,\tau)}{\partial \tau} = -\sum_{i,j=1}^{2}\frac{\partial}{\partial \Phi_i}\!\left[A_{ij}\Phi_j P(\Phi,\tau)\right] + \frac{1}{2}\sum_{i,j=1}^{2} D_{ij}(\tau)\frac{\partial^2 P(\Phi,\tau)}{\partial \Phi_i \partial \Phi_j}$$
+          </div>
+          <p>
+            where the diffusion matrix $D_{ij}(\tau) = \frac{1}{2}(\Xi_{\phi\phi} + \Xi_{\pi\pi})I + \frac{1}{2}(\Xi_{\phi\pi} + \Xi_{\pi\phi})J_x + \frac{1}{2}(\Xi_{\phi\phi} - \Xi_{\pi\pi})J_z$ is constructed directly from the two-point quantum noise correlation matrix $\Xi(\vec{x}_1,\tau_1; \vec{x}_2,\tau_2)$ and Pauli matrices $J_i$.
           </p>
 
-          <h2>2. Numerical Implementation</h2>
+          <h2>2. Numerical Methodology</h2>
           <ul>
-            <li><strong>Stochastic Trajectory Ensembles:</strong> Implemented vectorized Euler–Maruyama solvers in Python to simulate $10^5$ independent Langevin realizations in phase space $(\bar{\phi}, \bar{\pi}_\phi)$.</li>
-            <li><strong>Fokker–Planck Solver:</strong> Built a finite-difference PDE integrator for $P(\phi, N)$ with absorbing boundary conditions at the end-of-inflation surface to compute first-passage time distributions ($\mathcal{N}$-fold statistics).</li>
-            <li><strong>Analytical Validation:</strong> Benchmarked numerical histograms and Fokker–Planck densities against exact Gaussian slow-roll stationary distributions in quadratic and plateau potentials.</li>
+            <li><strong>Monte Carlo Quantum Noise Sampling:</strong> Modeled creation and annihilation operators ($a_{\vec{k}}, a_{\vec{k}}^\dagger$) in 3D Fourier space as complex Gaussian random variables sampled via Monte Carlo to evaluate stochastic noise realizations $\xi_\phi(\tau), \xi_\pi(\tau)$ and expectation values of the correlation matrix $\Xi$.</li>
+            <li><strong>Euler–Maruyama Langevin Ensembles:</strong> Integrated large ensembles of coupled SDE trajectories across Monte Carlo-perturbed initial conditions ("parallel universe realizations") to construct empirical marginal and joint PDFs of $\phi$ and $\pi$.</li>
+            <li><strong>Finite-Difference Fokker–Planck Solver:</strong> Evolved $P(\phi, \pi, \tau)$ directly on a discretized 2D phase-space grid using the numerically averaged diffusion matrix $D_{ij}(\tau)$ to benchmark stochastic trajectories against deterministic PDE evolution.</li>
+          </ul>
+
+          <h2>3. Key Results &amp; Cosmological Scope</h2>
+          <ul>
+            <li><strong>Dynamical Horizon Freeze-Out:</strong> Spatial snapshots from $\tau = 0$ through intermediate ($\tau = \tau_{22}$) and late conformal times ($\tau = \tau_{41}$) confirm that sub-Hubble fluctuations decay and freeze out upon horizon exit, driving the field into a homogeneous slow-roll attractor.</li>
+            <li><strong>Gaussian Slow-Roll Statistics:</strong> Independent stochastic realizations reproduce well-defined Gaussian distributions for both $\phi$ and $\pi$ with small momentum variance, consistent with Central Limit Theorem noise aggregation and standard slow-roll CMB predictions.</li>
+            <li><strong>Phase-Space Coupling &amp; Three Dynamical Regimes:</strong> 2D Fokker–Planck probability maps reveal diagonal correlation fringes evidencing coupled $(\phi, \pi)$ evolution during horizon crossing. Tracking statistical moments across $\tau \in [-20.0, 0.0]$ resolves three distinct stages: an initial-condition-dominated regime, a transient regime with strong correlations and non-Gaussianity, and a quasi-stationary regime stabilized around zero.</li>
           </ul>
 
           <div class="project-actions">
