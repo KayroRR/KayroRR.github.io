@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#071114" />
+    <meta name="description" content="Cosmological implications of the L'_CO-FWHM scaling relation for high-redshift dusty star-forming galaxies using ALMA observations." />
+    <title>L'_CO–FWHM Relation &amp; Dark Energy Probes | Kayro Romero Ramírez</title>
+    <link rel="icon" type="image/svg+xml" href="/logo-cosmica.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/css/styles.css" />
+    <script>window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']] } };</script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="module" src="/src/js/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Kayro Romero, home">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="15.5" stroke="currentColor" stroke-width="1.3"/><ellipse cx="20" cy="20" rx="8" ry="16" transform="rotate(42 20 20)" stroke="currentColor" stroke-width="1.3"/><circle cx="20" cy="20" r="2.4" fill="currentColor"/><circle cx="31.5" cy="9" r="2" fill="#f0a878"/></svg></span>
+        <span class="brand-name">KAYRO ROMERO</span><span class="brand-divider">/</span><span class="brand-descriptor">Theoretical Physics &amp; Cosmology</span>
+      </a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><span></span><span></span></button>
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <a href="/research/">Research</a>
+        <a href="/projects/">Projects</a>
+        <a href="/outreach/">Teaching &amp; Outreach</a>
+        <a class="nav-contact" href="/contact/">Contact <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+
+    <main id="contenido" class="inner-page">
+      <section class="page-hero publication-hero">
+        <div class="page-kicker"><span>Project 01 / Observational &amp; Theoretical Cosmology</span><span class="live-indicator">ALMA Interferometry · High-$z$ Dark Energy</span></div>
+        <div class="page-hero-layout">
+          <div><p class="eyebrow">Supervisor: Dr. Marianela Quirós Rojas</p><h1>$L'_{\text{CO}}\text{--FWHM}$<br />as a high-$z$<br /><em>dark energy probe.</em></h1></div>
+          <p class="page-lede">Leveraging gravitational magnification invariance in dusty star-forming galaxies (DSFGs) and ALMA interferometry of HARPAS-51 to constrain cosmological parameters at $z > 1$.</p>
+        </div>
+        <div class="pub-hero-foot"><span>ALMA · CASA (tclean) · CARTA</span><span>$\Lambda\text{CDM}$ · $w\text{CDM}$ · CPL ($w_0, w_a$)</span></div>
+      </section>
+
+      <section class="project-article">
+        <div class="project-container">
+          <a class="back-crumb" href="/projects/">← Back to all projects</a>
+
+          <div class="specs-grid">
+            <div class="spec-card"><span>Control Target</span><strong>HARPAS-51 (PLUM-Fields)</strong></div>
+            <div class="spec-card"><span>Observatory &amp; Pipeline</span><strong>ALMA · CASA &amp; CARTA</strong></div>
+            <div class="spec-card"><span>Cosmological Reach</span><strong>$1.0 &lt; z &lt; 6.5$ ($\Omega_{m0}, w_0, w_a$)</strong></div>
+          </div>
+
+          <h2>1. Research Question &amp; Motivation</h2>
+          <p>
+            Dusty star-forming galaxies (DSFGs) and their submillimeter-selected counterparts (SMGs, $L_{\text{IR}} > 10^{12} L_\odot$) exhibit a strongly negative K-correction along the Rayleigh–Jeans dust tail ($S_\nu \propto \nu^{2+\beta}$), rendering their observed submillimeter flux nearly independent of redshift for $z \ge 1$. Moreover, flux-limited selections ($S_{500\,\mu\text{m}} > 100\text{ mJy}$) efficiently isolate strongly gravitationally lensed systems ($\mu \sim 5\text{--}30$).
+          </p>
+          <p>
+            While gravitational lensing amplifies integrated molecular line flux by the magnification factor $\mu = |\det \mathcal{A}|^{-1} = [(1-\kappa)^2 - \gamma^2]^{-1}$, the spectral Full Width at Half Maximum ($\text{FWHM}$) traces intrinsic Doppler kinematics within the galaxy's gravitational potential and remains strictly invariant under achromatic photon deflection. This study investigates how calibrating the empirical $L'_{\text{CO}(1-0)}\text{--FWHM}$ relation against lensing and merger systematics in control sources like <strong>HARPAS-51</strong> enables high-redshift DSFGs to serve as standardizable cosmological candles.
+          </p>
+
+          <h2>2. Theoretical Framework &amp; Standardization Formalism</h2>
+          <p>
+            Following Wu et al. (2019), restricting the correlation to the fundamental rotational transition $\text{CO}(J=1\text{--}0)$ eliminates excitation-ladder scatter and yields a redshift-invariant log-linear scaling relation between uncorrected line width $W_{\text{CO}}^{\text{uncorr}}$ and intrinsic CO luminosity:
+          </p>
+          <div class="math-box">
+            $$\log_{10}\!\left(W_{\text{CO}}^{\text{uncorr}}\right) - A = \alpha + \beta\left[\log_{10}\!\left(L_{\text{CO}(1-0)}^{\prime\,\text{intrins}}\right) - B\right]$$
+          </div>
+          <p>
+            with pivot constants $A = 2.45$, $B = 9.81$, and locally calibrated zero-evolution parameters $\alpha = 0.03 \pm 0.05$, $\beta = 0.21 \pm 0.04$ ($\epsilon_i = 0.21$). Combining the inferred intrinsic luminosity with the observed velocity-integrated flux $I_{\text{CO}}$ ($\text{Jy km s}^{-1}$) and rest frequency $\nu_0$ ($\text{GHz}$) yields cosmology-independent luminosity distances $D_L(z)$:
+          </p>
+          <div class="math-box">
+            $$L_{\text{CO}(1-0)}^{\prime\,\text{intrins}} = \frac{L'_{\text{CO}(1-0)}}{\mu} = \frac{3.25 \times 10^7\, I_{\text{CO}}\, D_L^2(z)}{\mu\,\nu_0^2(1+z)}, \qquad \text{DM} = 5\log_{10}\!\left(\frac{D_L}{\text{Mpc}}\right) + 25$$
+          </div>
+          <p>
+            Incorporating these high-redshift distance moduli ($z \sim 1\text{--}6.5$) into the Hubble diagram alongside Type Ia Supernovae tests extensions beyond $\Lambda\text{CDM}$, including constant-$w$ models ($w\text{CDM}$) and the Chevallier–Polarski–Linder (CPL) dynamical dark energy parametrization:
+          </p>
+          <div class="math-box">
+            $$w(a) = w_0 + w_a(1 - a) = w_0 + w_a\frac{z}{1+z}$$
+          </div>
+          <p>
+            directly probing parameter regions ($w_0 > -1, w_a < 0$) highlighted by recent DESI DR2 BAO, CMB, and supernova joint analyses.
+          </p>
+
+          <h2>3. Interferometric &amp; Statistical Methodology</h2>
+          <ul>
+            <li><strong>ALMA Image-Plane Reconstruction (CASA):</strong> Reduced archival ALMA interferometric visibilities for control source <strong>HARPAS-51</strong> (selected from the Potential Lenses and Unidentified Mergers, PLUM-Fields sample) using the <code>tclean</code> deconvolution algorithm in CASA.</li>
+            <li><strong>Spectral Line &amp; Continuum Modeling (CARTA):</strong> Extracted integrated 1D spectra in CARTA and performed channel-rms-weighted Gaussian profile fits to measure $\nu_{\text{obs}}$, $z_{\text{spec}}$, $I_{\text{CO}}$, and $W_{\text{CO}}^{\text{uncorr}}$. Derived apparent molecular gas mass ($\mu M_{\text{H}_2} = \alpha_{\text{CO}} L'_{\text{CO}(1-0)}$) via DSFG excitation factors $r_{J,1}$, alongside dust mass ($M_{\text{dust}}$), $L_{\text{IR}}$, and star formation rate (SFR) via optically thin modified blackbody fits ($S_\nu \propto \nu^\beta B_\nu(T_{\text{dust}})$).</li>
+            <li><strong>Systematics Calibration &amp; Population Scaling:</strong> Evaluated effective magnification $\mu$ and systematic error budgets (lensing-vs.-merger kinematic broadening, $r_{J,1}$, and $\alpha_{\text{CO}}$ variations) in HARPAS-51 to scale the distance indicator to large SMG samples (Wu et al. + Birkin et al.) for joint maximum-likelihood constraints on $(\Omega_{m0}, w_0, w_a)$.</li>
+          </ul>
+
+          <div class="project-actions">
+            <a class="button button-dark" href="/research/#lensing">View Related Research Track ↗</a>
+            <a class="button button-outline" style="color:#132a2b;border-color:#132a2b;" href="/projects/">Explore Other Projects</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="footer-brand" href="/">KAYRO ROMERO<span> · Theoretical Physics</span></a>
+      <span>University of Costa Rica · San José, Costa Rica</span>
+      <a class="footer-up" href="#contenido">Back to top ↑</a>
+      <p class="demo-note">GitHub: github.com/KayroRR · Email: kayro.romero@ucr.ac.cr</p>
+    </footer>
+  </body>
+</html>
