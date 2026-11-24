@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://kayrorr.github.io/</loc><priority>1.0</priority></url>
+  <url><loc>https://kayrorr.github.io/research/</loc><priority>0.9</priority></url>
+  <url><loc>https://kayrorr.github.io/projects/</loc><priority>0.9</priority></url>
+  <url><loc>https://kayrorr.github.io/projects/co-fwhm-cosmology/</loc><priority>0.8</priority></url>
+  <url><loc>https://kayrorr.github.io/projects/stochastic-inflation/</loc><priority>0.8</priority></url>
+  <url><loc>https://kayrorr.github.io/projects/klein-gordon-lattice/</loc><priority>0.8</priority></url>
+  <url><loc>https://kayrorr.github.io/projects/hpc-solvers/</loc><priority>0.8</priority></url>
+  <url><loc>https://kayrorr.github.io/outreach/</loc><priority>0.8</priority></url>
+  <url><loc>https://kayrorr.github.io/contact/</loc><priority>0.7</priority></url>
+</urlset>
